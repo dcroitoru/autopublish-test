@@ -3,6 +3,9 @@ description: "Greet someone"
 author: "octocat@github.com"
 
 inputs:
+  repo-token:
+    description: 'The GITHUB_TOKEN secret'
+    
   MY_NAME:
     description: "Who to greet"
     required: true
