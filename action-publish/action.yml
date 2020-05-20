@@ -15,3 +15,6 @@ runs:
 branding:
   icon: "mic"
   color: "purple"
+  
+ env:
+    GITHUB_TOKEN: $(GITHUB_TOKEN)
