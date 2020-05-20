@@ -1,12 +1,20 @@
-name: A workflow for my Hello World file
-on: push
+name: Publish Site
+
+on:
+  push:
+    branches:
+      - master
+
 jobs:
-  build:
-    name: Hello world action
+  build-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
-      - uses: ./action-publish
+      - name: Checkout Repo
+        uses: actions/checkout@master
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          MY_NAME: "Denis"
+          submodules: true
+      - name: Publish Site
+        uses: chabad360/hugo-gh-pages@master
+        with:
+          githubToken: ${{ secrets.PERSONAL_TOKEN }}
